@@ -1,0 +1,162 @@
+---
+layout: false
+---
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+
+        #imagegallery {
+
+            list-style: none;
+        }
+
+        #imagegallery li {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery li a img {
+            border: 0;
+        }
+    </style>
+   	<!--<script type="text/javascript">-->
+   		<!-- -->
+   		<!--window.onload = function() {-->
+   			<!-- -->
+   			<!--/*-->
+   			 <!--* 思路： 实现大图片跟着小图片来变化 文字的变化-->
+   			 <!--* 细致的思路  #imgs.src = 你单击的那个a连接的href -->
+   			 <!--* 		   图片上面额div里面的内容 跟着谁来变化  你单击的那个a链接的title来变化	-->
+   			 <!--* */-->
+   			<!-- -->
+   			<!--// 1 事件源   -->
+   			<!--// 从整个文档下 获取所有的ul标签-->
+   			<!--var oUl = document.getElementById("imagegallery");-->
+   			<!--// 从ul里面去获取所有的a标签-->
+   			<!--var aA = oUl.getElementsByTagName("a");-->
+   			<!--console.log(aA);-->
+   			<!--// 获取大图片-->
+   			<!--var oImgs = document.getElementById("imgs");-->
+   			<!--// 获取那个div-->
+   			<!--var aDiv = document.getElementsByTagName("div")[0];-->
+   			<!--// 2 事件类型 单击-->
+   			<!--/*aA[0].onclick = function() {-->
+   				<!-- -->
+   				<!--// 将当前的a的href赋值 给图片的src-->
+   				<!--oImgs.src = this.href;-->
+   				<!--// 将当前的a的title赋值 给div的内容-->
+   				<!--aDiv.innerHTML = this.title;-->
+   				<!-- -->
+   				<!--// 阻止a链接的默认跳转-->
+   				<!--return false;-->
+   			<!--}*/-->
+   			<!-- -->
+   			<!--for(var i = 0; i < aA.length; i++) {-->
+   				<!-- -->
+   				<!--aA[i].onclick = function() {-->
+	   				<!-- -->
+	   				<!--// 将当前的a的href赋值 给图片的src-->
+	   				<!--oImgs.src = this.href;-->
+	   				<!--// 将当前的a的title赋值 给div的内容-->
+	   				<!--aDiv.innerHTML = this.title;-->
+	   				<!-- -->
+	   				<!--// 阻止a链接的默认跳转-->
+	   				<!--return false;-->
+	   			<!--}-->
+   				<!-- -->
+   			<!--}-->
+   			<!-- -->
+   		<!--}-->
+   		<!-- -->
+   		<!-- -->
+   	<!--</script>-->
+	</head>
+	<body>
+		<h2>
+		    美女画廊
+		</h2>
+		<a href="#">注册</a>
+		<ul id="imagegallery">
+		    <li>
+		        <a href="imgs/1.jpg" title="美女A">
+		            <img src="imgs/1-small.jpg" width="100" alt="美女1">
+		        </a>
+		    </li>
+		    <li>
+		        <a href="imgs/2.jpg" title="美女B">
+		            <img src="imgs/2-small.jpg" width="100" alt="美女2">
+		        </a>
+		    </li>
+		    <li>
+		        <a href="imgs/3.jpg" title="美女C">
+		            <img src="imgs/3-small.jpg" width="100" alt="美女3">
+		        </a>
+		    </li>
+		    <li>
+		        <a href="imgs/4.jpg" title="美女D">
+		            <img src="imgs/4-small.jpg" width="100" alt="美女4">
+		        </a>
+		    </li>
+		</ul>
+		
+		
+		<div style="clear:both"></div>
+		<img id="imgs" src="imgs/placeholder.png" width="450px">
+		<p id="des">选择一个图片</p>
+	</body>
+</html>
+
+<script>
+	var as=document.getElementById("imagegallery").getElementsByTagName("a");
+	var imgs=document.getElementById("imagegallery").getElementsByTagName("img");
+	var tit=document.getElementsByTagName("div")[0];
+	var bigImg=document.getElementById("imgs");
+
+	for(var i=0;i<as.length;i++){
+		as[i].index=i;
+		as[i].onclick=function(){
+			tit.innerHTML=imgs[this.index].alt;
+			bigImg.src=this.href;
+			return false;
+		}
+	}
+
+
+
+
+
+</script>
