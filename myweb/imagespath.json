@@ -1,0 +1,26 @@
+[
+  {
+    "path": [
+      "./imgs/1-small.jpg",
+      "./imgs/1.jpg"
+    ]
+  },
+  {
+    "path": [
+      "./imgs/2-small.jpg",
+      "./imgs/2.jpg"
+    ]
+  },
+  {
+    "path": [
+      "./imgs/3-small.jpg",
+      "./imgs/3.jpg"
+    ]
+  },
+  {
+    "path": [
+      "./imgs/4-small.jpg",
+      "./imgs/4.jpg"
+    ]
+  }
+]
